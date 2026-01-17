@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق أعمال إبراهيم الضبري</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }
+        header { background: linear-gradient(135deg, #0f172a, #334155); color: white; text-align: center; padding: 4rem 1rem; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        .section-title { text-align: center; margin: 40px 0 20px; color: #0f172a; font-size: 1.8rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: #3b82f6; margin: 10px auto; border-radius: 2px; }
+
+        /* معرض الأعمال */
+        .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .portfolio-item { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: 0.3s; }
+        .portfolio-item:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .portfolio-item img { width: 100%; height: auto; display: block; }
+        .portfolio-item .info { padding: 20px; text-align: center; }
+
+        /* نموذج طلب تصميم */
+        .order-form { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin: 40px 0; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; box-sizing: border-box; font-family: inherit; }
+        
+        /* أزرار التواصل */
+        .actions { text-align: center; padding: 40px 0; }
+        .btn-whatsapp { display: inline-block; background-color: #25d366; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
+        .btn-whatsapp:hover { background-color: #128c7e; transform: scale(1.05); }
+        
+        .price-tag { color: #2563eb; font-weight: bold; font-size: 1.2rem; display: block; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>إبراهيم الضبري للدعاية والتصميم</h1>
+    <p>نحول أفكارك إلى واقع بصري مبدع</p>
+</header>
+
+<div class="container">
+    
+    <h2 class="section-title">من أعمالي السابقة</h2>
+    <div class="portfolio">
+        <div class="portfolio-item">
+            <img src="https://i.postimg.cc/Rh7qBzhK/IMG-20260116-WA0001.jpg" alt="تصميم جمعة مباركة مدرسة الفوز">
+            <div class="info">
+                <h3>تصميم تهنئة وبطاقات إعلانية</h3>
+                <span class="price-tag">يبدأ من 10$</span>
+            </div>
+        </div>
+        
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/600x600?text=Logo+Design" alt="تصميم شعار">
+            <div class="info">
+                <h3>تصميم شعارات احترافية</h3>
+                <span class="price-tag">يبدأ من 30$</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-form">
+        <h2 class="section-title">طلب تصميم جديد</h2>
+        <div class="form-group">
+            <label>نوع التصميم المطلوب</label>
+            <select id="designType">
+                <option>شعار (Logo)</option>
+                <option>كرت شخصي</option>
+                <option>إعلان سوشيال ميديا</option>
+                <option>بنر إعلاني</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>تفاصيل التصميم</label>
+            <textarea id="details" rows="4" placeholder="اكتب هنا تفاصيل التصميم والألوان المطلوبة..."></textarea>
+        </div>
+        <div class="actions">
+            <button onclick="sendOrder()" class="btn-whatsapp" style="border:none; cursor:pointer; width: 100%;">
+                إرسال الطلب عبر الواتساب
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function sendOrder() {
+        const type = document.getElementById('designType').value;
+        const details = document.getElementById('details').value;
+        const phone = "967772925745";
+        const message = `مرحباً إبراهيم، أريد طلب تصميم جديد:
+- النوع: ${type}
+- التفاصيل: ${details}`;
+        
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
